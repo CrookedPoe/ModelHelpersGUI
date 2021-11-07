@@ -53,12 +53,19 @@ namespace ModelHelpersGUI
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     unpackSourceTextBox.Text = Path.GetFullPath(dlg.FileName);
+                    Properties.Settings.Default["unpackDir"] = unpackSourceTextBox.Text;
                 }
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Load Saved Settings
+            unpackSourceTextBox.Text = Properties.Settings.Default["unpackDir"].ToString();
+            cleanFolderTextBox.Text = Properties.Settings.Default["packCleanDir"].ToString();
+            customFolderTextBox.Text = Properties.Settings.Default["packCustomDir"].ToString();
+            rarcnameTextBox.Text = Properties.Settings.Default["packRarcName"].ToString();
+
             fauxConsoleTextBox.Size = new Size(649, 320);
             timer1.Start();
         }
@@ -155,12 +162,37 @@ namespace ModelHelpersGUI
 
         private void moveButton_Click(object sender, EventArgs e)
         {
+            // This is the directory plus Filename of the output file.
             string finalRarc = $"{customFolderTextBox.Text}\\{rarcnameTextBox.Text}.arc";
-            File.Copy(finalRarc, $"{Properties.Settings.Default["dolphinDir"].ToString()}\\{rarcnameTextBox.Text}.arc");
-            MessageBox.Show($"{rarcnameTextBox.Text}.arc copied to {Properties.Settings.Default["dolphinDir"].ToString()}");
+
+            // This is the directory plus Filename of the output file after being moved to the Dolphin Folder.
+            string outDir = $"{Properties.Settings.Default["dolphinDir"].ToString()}\\{rarcnameTextBox.Text}.arc";
+
+            // If the output file already exists, delete it.
+            if (File.Exists(outDir))
+            {
+                File.Delete(outDir);
+            }
+
+            // Move the final file to the output directory. This doesn't copy it, so the old one should not remain.
+            if (File.Exists(finalRarc))
+            {
+                File.Move(finalRarc, outDir);
+                // This should prompt you, telling you that the move was successful.
+                MessageBox.Show($"{rarcnameTextBox.Text}.arc copied to {Properties.Settings.Default["dolphinDir"].ToString()}");
+            }
+            else
+            {
+                MessageBox.Show($"{rarcnameTextBox.Text}.arc has either been deleted or already moved and no longer exists. Did you mean to reback instead?");
+            }
         }
 
         private void fauxConsoleTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void unpackGroupBox_Enter(object sender, EventArgs e)
         {
 
         }

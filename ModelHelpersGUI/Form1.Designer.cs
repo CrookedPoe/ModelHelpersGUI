@@ -30,6 +30,7 @@ namespace ModelHelpersGUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +61,7 @@ namespace ModelHelpersGUI
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem});
@@ -73,6 +75,7 @@ namespace ModelHelpersGUI
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -88,6 +91,7 @@ namespace ModelHelpersGUI
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consoleToolStripMenuItem});
+            this.viewToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -103,39 +107,53 @@ namespace ModelHelpersGUI
             // 
             // unpackGroupBox
             // 
+            this.unpackGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.unpackGroupBox.Controls.Add(this.unpackSourceButton);
             this.unpackGroupBox.Controls.Add(this.unpackSourceBrowseButton);
             this.unpackGroupBox.Controls.Add(this.unpackSourceTextBox);
             this.unpackGroupBox.Controls.Add(this.unpackSourceLabel);
-            this.unpackGroupBox.Location = new System.Drawing.Point(12, 27);
+            this.unpackGroupBox.ForeColor = System.Drawing.Color.LightBlue;
+            this.unpackGroupBox.Location = new System.Drawing.Point(12, 26);
             this.unpackGroupBox.Name = "unpackGroupBox";
-            this.unpackGroupBox.Size = new System.Drawing.Size(295, 104);
+            this.unpackGroupBox.Size = new System.Drawing.Size(295, 106);
             this.unpackGroupBox.TabIndex = 1;
             this.unpackGroupBox.TabStop = false;
             this.unpackGroupBox.Text = "Unpack Models";
+            this.unpackGroupBox.Enter += new System.EventHandler(this.unpackGroupBox_Enter);
             // 
             // unpackSourceButton
             // 
+            this.unpackSourceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.unpackSourceButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.unpackSourceButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.unpackSourceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.unpackSourceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.unpackSourceButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.unpackSourceButton.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.unpackSourceButton.Location = new System.Drawing.Point(173, 66);
             this.unpackSourceButton.Name = "unpackSourceButton";
             this.unpackSourceButton.Size = new System.Drawing.Size(107, 23);
             this.unpackSourceButton.TabIndex = 7;
             this.unpackSourceButton.Text = "Unpack";
-            this.unpackSourceButton.UseVisualStyleBackColor = true;
+            this.unpackSourceButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.unpackSourceButton.UseVisualStyleBackColor = false;
             this.unpackSourceButton.Click += new System.EventHandler(this.unpackSourceButton_Click);
             // 
             // unpackSourceBrowseButton
             // 
+            this.unpackSourceBrowseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.unpackSourceBrowseButton.Location = new System.Drawing.Point(246, 37);
             this.unpackSourceBrowseButton.Name = "unpackSourceBrowseButton";
             this.unpackSourceBrowseButton.Size = new System.Drawing.Size(34, 23);
             this.unpackSourceBrowseButton.TabIndex = 6;
             this.unpackSourceBrowseButton.Text = "...";
-            this.unpackSourceBrowseButton.UseVisualStyleBackColor = true;
+            this.unpackSourceBrowseButton.UseVisualStyleBackColor = false;
             this.unpackSourceBrowseButton.Click += new System.EventHandler(this.unpackSourceBrowseButton_Click);
             // 
             // unpackSourceTextBox
             // 
+            this.unpackSourceTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(45)))), ((int)(((byte)(52)))));
+            this.unpackSourceTextBox.ForeColor = System.Drawing.Color.White;
             this.unpackSourceTextBox.Location = new System.Drawing.Point(6, 37);
             this.unpackSourceTextBox.Name = "unpackSourceTextBox";
             this.unpackSourceTextBox.Size = new System.Drawing.Size(234, 23);
@@ -152,6 +170,7 @@ namespace ModelHelpersGUI
             // 
             // packGroupBox
             // 
+            this.packGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.packGroupBox.Controls.Add(this.moveButton);
             this.packGroupBox.Controls.Add(this.packButton);
             this.packGroupBox.Controls.Add(this.rarcnameTextBox);
@@ -162,6 +181,7 @@ namespace ModelHelpersGUI
             this.packGroupBox.Controls.Add(this.cleanFolderBrowseButton);
             this.packGroupBox.Controls.Add(this.cleanFolderTextBox);
             this.packGroupBox.Controls.Add(this.cleanFolderLabel);
+            this.packGroupBox.ForeColor = System.Drawing.Color.LightBlue;
             this.packGroupBox.Location = new System.Drawing.Point(12, 137);
             this.packGroupBox.Name = "packGroupBox";
             this.packGroupBox.Size = new System.Drawing.Size(295, 222);
@@ -171,26 +191,44 @@ namespace ModelHelpersGUI
             // 
             // moveButton
             // 
+            this.moveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.moveButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.moveButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.moveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.moveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.moveButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.moveButton.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.moveButton.Location = new System.Drawing.Point(173, 183);
             this.moveButton.Name = "moveButton";
             this.moveButton.Size = new System.Drawing.Size(107, 23);
             this.moveButton.TabIndex = 16;
             this.moveButton.Text = "Move to Dolphin";
-            this.moveButton.UseVisualStyleBackColor = true;
+            this.moveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.moveButton.UseVisualStyleBackColor = false;
             this.moveButton.Click += new System.EventHandler(this.moveButton_Click);
             // 
             // packButton
             // 
+            this.packButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
+            this.packButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.packButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.packButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.packButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.packButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.packButton.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.packButton.Location = new System.Drawing.Point(173, 154);
             this.packButton.Name = "packButton";
             this.packButton.Size = new System.Drawing.Size(107, 23);
             this.packButton.TabIndex = 15;
             this.packButton.Text = "Pack";
-            this.packButton.UseVisualStyleBackColor = true;
+            this.packButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.packButton.UseVisualStyleBackColor = false;
             this.packButton.Click += new System.EventHandler(this.packButton_Click);
             // 
             // rarcnameTextBox
             // 
+            this.rarcnameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(45)))), ((int)(((byte)(52)))));
+            this.rarcnameTextBox.ForeColor = System.Drawing.Color.White;
             this.rarcnameTextBox.Location = new System.Drawing.Point(7, 125);
             this.rarcnameTextBox.Name = "rarcnameTextBox";
             this.rarcnameTextBox.Size = new System.Drawing.Size(234, 23);
@@ -208,16 +246,19 @@ namespace ModelHelpersGUI
             // 
             // customFolderBrowseButton
             // 
+            this.customFolderBrowseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.customFolderBrowseButton.Location = new System.Drawing.Point(246, 81);
             this.customFolderBrowseButton.Name = "customFolderBrowseButton";
             this.customFolderBrowseButton.Size = new System.Drawing.Size(34, 23);
             this.customFolderBrowseButton.TabIndex = 12;
             this.customFolderBrowseButton.Text = "...";
-            this.customFolderBrowseButton.UseVisualStyleBackColor = true;
+            this.customFolderBrowseButton.UseVisualStyleBackColor = false;
             this.customFolderBrowseButton.Click += new System.EventHandler(this.customFolderBrowseButton_Click);
             // 
             // customFolderTextBox
             // 
+            this.customFolderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(45)))), ((int)(((byte)(52)))));
+            this.customFolderTextBox.ForeColor = System.Drawing.Color.White;
             this.customFolderTextBox.Location = new System.Drawing.Point(6, 81);
             this.customFolderTextBox.Name = "customFolderTextBox";
             this.customFolderTextBox.Size = new System.Drawing.Size(234, 23);
@@ -234,16 +275,19 @@ namespace ModelHelpersGUI
             // 
             // cleanFolderBrowseButton
             // 
+            this.cleanFolderBrowseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(31)))));
             this.cleanFolderBrowseButton.Location = new System.Drawing.Point(246, 37);
             this.cleanFolderBrowseButton.Name = "cleanFolderBrowseButton";
             this.cleanFolderBrowseButton.Size = new System.Drawing.Size(34, 23);
             this.cleanFolderBrowseButton.TabIndex = 9;
             this.cleanFolderBrowseButton.Text = "...";
-            this.cleanFolderBrowseButton.UseVisualStyleBackColor = true;
+            this.cleanFolderBrowseButton.UseVisualStyleBackColor = false;
             this.cleanFolderBrowseButton.Click += new System.EventHandler(this.cleanFolderBrowseButton_Click);
             // 
             // cleanFolderTextBox
             // 
+            this.cleanFolderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(45)))), ((int)(((byte)(52)))));
+            this.cleanFolderTextBox.ForeColor = System.Drawing.Color.White;
             this.cleanFolderTextBox.Location = new System.Drawing.Point(6, 37);
             this.cleanFolderTextBox.Name = "cleanFolderTextBox";
             this.cleanFolderTextBox.Size = new System.Drawing.Size(234, 23);
@@ -264,7 +308,9 @@ namespace ModelHelpersGUI
             // 
             // fauxConsoleTextBox
             // 
+            this.fauxConsoleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.fauxConsoleTextBox.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fauxConsoleTextBox.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.fauxConsoleTextBox.Location = new System.Drawing.Point(313, 38);
             this.fauxConsoleTextBox.Multiline = true;
             this.fauxConsoleTextBox.Name = "fauxConsoleTextBox";
@@ -278,12 +324,15 @@ namespace ModelHelpersGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 377);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.ClientSize = new System.Drawing.Size(442, 393);
             this.Controls.Add(this.fauxConsoleTextBox);
             this.Controls.Add(this.packGroupBox);
             this.Controls.Add(this.unpackGroupBox);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Model Helpers";
